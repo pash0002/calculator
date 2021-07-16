@@ -32,4 +32,9 @@ public class StringCalculatorSpec {
     assert calculator.add("1\n2,3") == 6;
   }
 
+  @Test
+  void additionOfNumberWithSpecialCharacters() {
+    assert calculator.add("//;\\n1;2") == 3;
+  }
+
 }
