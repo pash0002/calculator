@@ -3,6 +3,7 @@ package com.calculator;
 import com.calulator.StringCalculator;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorSpec {
@@ -11,38 +12,44 @@ public class StringCalculatorSpec {
 
   @Test
   void additionForBlankInput() {
-    assert calculator.add("") == 0;
+    assertEquals(0, calculator.add(""));
   }
 
   @Test
   void additionForSingleNumberInput() {
-    assert calculator.add("1") == 1;
+    assertEquals(1, calculator.add("1"));
   }
 
   @Test
   void additionForTwoNumberInput() {
-    assert calculator.add("1,2") == 3;
+    assertEquals(3, calculator.add("1,2"));
   }
 
   @Test
   void additionMultipleNumberInput() {
-    assert calculator.add("1,2,3,4,5") == 15;
+    assertEquals(15, calculator.add("1,2,3,4,5"));
   }
 
   @Test
   void additionOfNumberWithNewline() {
-    assert calculator.add("1\n2,3") == 6;
+    assertEquals(6, calculator.add("1\n2,3"));
   }
 
   @Test
    void invalidInput() {
     Exception exception = assertThrows(UnsupportedOperationException.class, () -> calculator.add("//;\\n1;"));
-    assert"INVALID input".equals(exception.getMessage());
+    assertEquals("INVALID input", exception.getMessage());
   }
 
   @Test
   void additionOfNumberWithSpecialCharacters() {
-    assert calculator.add("//;\\n1;2") == 3;
+    assertEquals(3, calculator.add("//;\\n1;2"));
+  }
+
+  @Test
+  void negativeNumbersInput() {
+    Exception exception = assertThrows(UnsupportedOperationException.class, () -> calculator.add("-1,-2,-3"));
+    assertEquals("negatives not allowed -1, -2, -3", exception.getMessage());
   }
 
 }
