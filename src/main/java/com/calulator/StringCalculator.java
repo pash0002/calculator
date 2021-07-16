@@ -1,20 +1,19 @@
 package com.calulator;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringCalculator {
 
+  Pattern numberPattern = Pattern.compile("([0-9])");
+
   public int add(String numbers) {
-    if (numbers.length() == 0 && "".equals(numbers)) {
-      return 0;
-    } else if (numbers.length() == 1) {
-      return Integer.parseInt(numbers);
-    } else {
-      String[] nos = numbers.split(",");
-      int sum = 0;
-      for (String no : nos) {
-        sum = sum + Integer.parseInt(no);
-      }
-      return sum;
+    int sum = 0;
+    Matcher numberMatcher = numberPattern.matcher(numbers);
+    while (numberMatcher.find()) {
+      sum = sum + Integer.parseInt(numberMatcher.group(0));
     }
+    return sum;
   }
 
 }

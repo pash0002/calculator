@@ -27,4 +27,9 @@ public class StringCalculatorSpec {
     assert calculator.add("1,2,3,4,5") == 15;
   }
 
+  @Test
+  void additionOfNumberWithNewline() {
+    assert calculator.add("1\n2,3") == 6;
+  }
+
 }
