@@ -3,6 +3,8 @@ package com.calculator;
 import com.calulator.StringCalculator;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class StringCalculatorSpec {
 
   private final StringCalculator calculator = new StringCalculator();
@@ -30,6 +32,12 @@ public class StringCalculatorSpec {
   @Test
   void additionOfNumberWithNewline() {
     assert calculator.add("1\n2,3") == 6;
+  }
+
+  @Test
+   void invalidInput() {
+    Exception exception = assertThrows(UnsupportedOperationException.class, () -> calculator.add("//;\\n1;"));
+    assert"INVALID input".equals(exception.getMessage());
   }
 
   @Test

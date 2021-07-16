@@ -8,6 +8,8 @@ public class StringCalculator {
   Pattern numberPattern = Pattern.compile("([0-9])");
 
   public int add(String numbers) {
+    if (numbers.endsWith(",") || numbers.endsWith(";"))
+      throw new UnsupportedOperationException("INVALID input");
     int sum = 0;
     Matcher numberMatcher = numberPattern.matcher(numbers);
     while (numberMatcher.find()) {
