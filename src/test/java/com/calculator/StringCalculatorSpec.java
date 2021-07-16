@@ -52,4 +52,19 @@ public class StringCalculatorSpec {
     assertEquals("negatives not allowed -1, -2, -3", exception.getMessage());
   }
 
+  @Test
+  void numbersGreaterThanThousand() {
+    assertEquals(1004, calculator.add("2,1001,2,1000"));
+  }
+
+  @Test
+  void multipleDelimiters() {
+    assertEquals(6, calculator.add("//[*][%]\\n1*2%3"));
+  }
+
+  @Test
+  void maxLengthDelimiters() {
+    assertEquals(12, calculator.add("//[***]\\n1***2***3,//[**][%%]\\n1**2%%3"));
+  }
+
 }
