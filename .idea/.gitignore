@@ -1,0 +1,29 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# IDEA generated folder
+.idea/
+
+# Gradle related files and caches
+.gradletasknamecache
+.gradle/
+build/
+bin/
+
+# Gradle generated files
+gen/
+output/
+logs/
+
+*.iml
+classes/
+*.class
+.mtj.tmp/
+*.war
+*.ear
+*.iws
+/out/
+out/
+.idea_modules/
+/.nb-gradle/
