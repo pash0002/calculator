@@ -9,9 +9,11 @@ public class StringCalculator {
       return Integer.parseInt(numbers);
     } else {
       String[] nos = numbers.split(",");
-      int firstNumber = Integer.parseInt(nos[0]);
-      int secondNumber = Integer.parseInt(nos[1]);
-      return firstNumber + secondNumber;
+      int sum = 0;
+      for (String no : nos) {
+        sum = sum + Integer.parseInt(no);
+      }
+      return sum;
     }
   }
 

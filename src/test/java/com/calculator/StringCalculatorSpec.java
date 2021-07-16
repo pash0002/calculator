@@ -22,4 +22,9 @@ public class StringCalculatorSpec {
     assert calculator.add("1,2") == 3;
   }
 
+  @Test
+  void additionMultipleNumberInput() {
+    assert calculator.add("1,2,3,4,5") == 15;
+  }
+
 }
